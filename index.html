@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Para Vos, Mi Amor ❤️</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Fondo de luz y destellos -->
+  <div class="bg-glow"></div>
+  <div id="heartContainer" class="heart-container"></div>
+
+  <!-- Reproductor de Música Flotante con Botón Play -->
+  <div class="music-player">
+    <button id="musicToggle" class="music-btn" aria-label="Reproducir música">
+      <span id="playIcon" class="play-btn-icon">▶</span>
+      <span class="music-text">Nuestra canción</span>
+    </button>
+    <audio id="bgAudio" loop src="cancion.mp3"></audio>
+  </div>
+
+  <main class="main-wrapper">
+
+    <!-- ENCABEZADO PRINCIPAL -->
+    <header class="header-card">
+      <div class="header-badge">
+        <span class="sparkle">✨</span> Una sorpresa especial
+      </div>
+      
+      <h1 class="header-title">Hice esto pensando en nosotros...</h1>
+      
+      <div class="header-intro">
+        <p>
+          Esta vez pensé en hacer algo en lo que soy bueno, o almenos mejor jaj. Sé que para las cartas hechas a mano no soy muuy bueno y quizás no me quedan tan bonitas como las que vos me hacés a mí...
+        </p>
+        <p>
+          Por eso me tomé el tiempo de armarte esto. Algo bonito, único y <strong>especial</strong>, para que lo puedas guardar para siempre y no se deteriore jamás.
+        </p>
+      </div>
+
+      <!-- Desbloqueo -->
+      <div class="unlock-container">
+        <p class="unlock-question">¿Estás lista, amor?</p>
+        <button id="unlockBtn" class="unlock-btn">
+          <span>Estoy lista</span>
+          <span class="btn-heart">❤️</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- CONTENIDO BLOQUEADO -->
+    <div id="lockedContent" class="locked-content is-locked">
+
+      <!-- CARTA DE AMOR -->
+      <section class="letter-card">
+        <div class="letter-paper">
+          <div class="letter-header">
+            <span class="letter-date">Para el amor de mi vida</span>
+            <div class="letter-seal">💌</div>
+          </div>
+          
+          <div class="letter-body">
+            <p class="letter-text">Amor mio,</p>
+            <p class="letter-text">
+              Te escribo esto con todo mi corazon, porque te amo muchisisimo. A lo largo de todo este tiempo juntos me he dado cuenta de lo afortunado que soy de tenerte a mi lado. Sos mi hogar, quien me apoya, quien me saca una sonrisa, me hace feliz, sos a quien amo y mi persona favorita en todo el mundo, de hecho la unica persona q me importa.
+            </p>
+            <p class="letter-text">
+              No importa qué tan difícil sea el camino o qué momentos tengamos que atravesar, quiero que sepas que mi amor por vos sigue siendo el mismo, o incluso mucho mas, y creciendo cada día más. Gracias por cada sonrisa, por tu paciencia y por ser simplemente vos.
+            </p>
+            <p class="letter-text">Te amo infinitamente.</p>
+            
+            <div class="letter-signature">
+              Con todo mi amor,<br>
+              <span class="signature-name">[Elias]</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARRUSEL DE FOTOS (30 Espacios Personalizados) -->
+      <section class="carousel-section">
+        <h2 class="section-title">Carrusel de recuerdos</h2>
+        <p class="section-subtitle">Pasa las fotos o deslízalas con el dedo 📱</p>
+
+        <!-- Indicador numérico (ej. 1 / 30) -->
+        <div class="photo-counter" id="photoCounter">1 / 30</div>
+
+        <div class="carousel-container" id="carouselContainer">
+          <div class="carousel-track" id="carouselTrack">
+            <!-- Carga dinámica de fotos -->
+          </div>
+
+          <button class="carousel-btn prev" id="prevBtn" aria-label="Anterior">&lsaquo;</button>
+          <button class="carousel-btn next" id="nextBtn" aria-label="Siguiente">&rsaquo;</button>
+
+          <div class="carousel-dots" id="dotsContainer"></div>
+        </div>
+
+        <!-- Nota Humorística -->
+        <div class="humor-card">
+          <span class="humor-icon">💡</span>
+          <p>
+            "Qué hermosos e increíbles momentos pasamos juntos... ¡y qué increíble cómo en cada foto estoy más gordo que en la anterior! 😂❤️"
+          </p>
+        </div>
+      </section>
+
+      <!-- SECCIÓN FINAL -->
+      <footer class="final-card">
+        <h3>Gracias por ser mi lugar seguro</h3>
+        <p>Esta mini pagina va a estar acá siempre que quieras recordar cuánto te amo.</p>
+        <div class="pulse-heart">💖</div>
+      </footer>
+
+    </div>
+
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // LISTA PERSONALIZADA DE TUS 30 FOTOS Y SUS FRASES
+      const photosData = [
+        { src: 'foto1.jpg', caption: 'Uno de nuestros primeros días juntos ✨' },
+        { src: 'foto2.jpg', caption: 'El día que dije mis primeras palabras cursis y me dio vergüenza 🙈' },
+        { src: 'foto3.jpg', caption: 'Cuando me corriste la cara 😂' },
+        { src: 'foto4.jpg', caption: 'La primera vez que viniste a mi casa 🏠❤️' },
+        { src: 'foto5.jpg', caption: 'Mi primer cumpleaños junto a vos 🎂' },
+        { src: 'foto6.jpg', caption: 'Fotogym 💪🔥' },
+        { src: 'foto7.jpg', caption: 'Nuestra primera salida formal 🌹' },
+        { src: 'foto8.jpg', caption: 'Qué fitness chee 🏋️‍♂️' },
+        { src: 'foto9.jpg', caption: 'Lo cómodo que estaba, te amo 🥰' },
+        { src: 'foto10.jpg', caption: 'De compras (qué bonita sos) 🛍️❤️' },
+        { src: 'foto11.jpg', caption: 'Cuando fuimos al cinee 🍿' },
+        { src: 'foto12.jpg', caption: 'En uno de nuestros lugares favoritos (MOSTAZA) 🍔' },
+        { src: 'foto13.jpg', caption: 'Yendo a la Difunta juntitos 🗺️' },
+        { src: 'foto14.jpg', caption: 'Te amo ❤️' },
+        { src: 'foto15.jpg', caption: 'Lo hermosa que sos 😍' },
+        { src: 'foto16.jpg', caption: 'Éramos muy fitness jajaja 🏃‍♂️' },
+        { src: 'foto17.jpg', caption: 'Una noche más juntos 🌙' },
+        { src: 'foto18.jpg', caption: 'Cuando te hiciste las pestañasss ✨' },
+        { src: 'foto19.jpg', caption: 'Un día increíble, fue hermoso 💖' },
+        { src: 'foto20.jpg', caption: 'Admirando mi hermosa chica 🥺❤️' },
+        { src: 'foto21.jpg', caption: 'Gracias por acompañarme en mis locuras 🤪' },
+        { src: 'foto22.jpg', caption: 'En tu presentación de camperas 🎉' },
+        { src: 'foto23.jpg', caption: 'Qué manera de tomar Coca esa noche 🥤' },
+        { src: 'foto24.jpg', caption: 'Navidad juntos 🎄❤️' },
+        { src: 'foto25.jpg', caption: 'Mi novia abanderada, qué inteligente 🎓👏' },
+        { src: 'foto26.jpg', caption: 'En tu fiesta de egresadoss 🥳' },
+        { src: 'foto27.jpg', caption: 'Tu novio (no abanderado) 😢😂' },
+        { src: 'foto28.jpg', caption: 'Yendo a ver Spiderman 🕷️🎬' },
+        { src: 'foto29.jpg', caption: 'Sos mi persona favorita en el universo 🪐✨' },
+        { src: 'foto30.jpg', caption: 'Te amo demasiado (qué pesado que nos cayó la comida) 😂🍔' }
+      ];
+
+      // Generar dinámicamente el HTML de las 30 fotos
+      const carouselTrack = document.getElementById('carouselTrack');
+      const dotsContainer = document.getElementById('dotsContainer');
+      const photoCounter = document.getElementById('photoCounter');
+
+      photosData.forEach((item, index) => {
+        // Crear Slide
+        const slide = document.createElement('div');
+        slide.classList.add('slide');
+        if (index === 0) slide.classList.add('active');
+
+        slide.innerHTML = `
+          <div class="polaroid">
+            <div class="photo-frame">
+              <img src="${item.src}" alt="Foto ${index + 1}" onerror="this.src='https://picsum.photos/600/600?random=${index + 1}'">
+            </div>
+            <p class="polaroid-caption">${item.caption}</p>
+          </div>
+        `;
+        carouselTrack.appendChild(slide);
+
+        // Crear Puntos (Dots)
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+      });
+
+      // Desbloqueo
+      const unlockBtn = document.getElementById('unlockBtn');
+      const lockedContent = document.getElementById('lockedContent');
+      const heartContainer = document.getElementById('heartContainer');
+
+      unlockBtn.addEventListener('click', () => {
+        lockedContent.classList.remove('is-locked');
+        unlockBtn.style.opacity = '0.7';
+        unlockBtn.disabled = true;
+        unlockBtn.querySelector('span').innerText = '¡Desbloqueado!';
+
+        createHeartShower();
+
+        setTimeout(() => {
+          lockedContent.scrollIntoView({ behavior: 'smooth' });
+        }, 400);
+      });
+
+      function createHeartShower() {
+        const symbols = ['❤️', '💖', '💕', '✨', '🌸'];
+        for (let i = 0; i < 35; i++) {
+          setTimeout(() => {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            heart.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+            heartContainer.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 5000);
+          }, i * 120);
+        }
+      }
+
+      // Reproductor de Música Flotante con cambio de ícono Play/Pausa
+      const musicBtn = document.getElementById('musicToggle');
+      const bgAudio = document.getElementById('bgAudio');
+      const playIcon = document.getElementById('playIcon');
+      let isPlayingMusic = false;
+
+      musicBtn.addEventListener('click', () => {
+        if (!isPlayingMusic) {
+          bgAudio.play().then(() => {
+            isPlayingMusic = true;
+            musicBtn.classList.add('playing');
+            playIcon.innerText = '⏸';
+          }).catch(err => console.log("Audio play error:", err));
+        } else {
+          bgAudio.pause();
+          isPlayingMusic = false;
+          musicBtn.classList.remove('playing');
+          playIcon.innerText = '▶';
+        }
+      });
+
+      // Navegación del carrusel
+      const slides = document.querySelectorAll('.slide');
+      const dots = document.querySelectorAll('.dot');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const carouselContainer = document.getElementById('carouselContainer');
+      let currentIndex = 0;
+
+      function updateCarousel() {
+        slides.forEach((slide, idx) => {
+          slide.classList.toggle('active', idx === currentIndex);
+        });
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === currentIndex);
+        });
+
+        photoCounter.innerText = `${currentIndex + 1} / ${slides.length}`;
+
+        const activeDot = dots[currentIndex];
+        if (activeDot) {
+          activeDot.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      }
+
+      function goToSlide(index) {
+        currentIndex = index;
+        updateCarousel();
+      }
+
+      nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel();
+      });
+
+      prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateCarousel();
+      });
+
+      // Swipe táctil
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      carouselContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      carouselContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, { passive: true });
+
+      function handleSwipe() {
+        const threshold = 40;
+        if (touchStartX - touchEndX > threshold) {
+          currentIndex = (currentIndex + 1) % slides.length;
+          updateCarousel();
+        } else if (touchEndX - touchStartX > threshold) {
+          currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+          updateCarousel();
+        }
+      }
+    });
+  </script>
+</body>
+</html>
